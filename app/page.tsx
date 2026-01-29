@@ -1,65 +1,114 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <section className="space-y-28">
+      {/* HERO */}
+      <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="space-y-6">
+          <span className="inline-block text-sm font-medium text-orange-500">
+            Local discovery & digital loyalty
+          </span>
+
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+            One app connecting local businesses and the customers who support
+            them
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="text-neutral-300 max-w-xl">
+            YourLocal brings local communities together by helping customers
+            discover nearby businesses, while giving businesses modern tools to
+            engage, reward and communicate with their customers.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Right visual card */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-orange-500/10 blur-3xl rounded-full" />
+          <div className="relative border border-neutral-800 rounded-2xl bg-neutral-900 p-8">
+            <p className="text-sm text-neutral-400 mb-4">
+              What you can do with YourLocal
+            </p>
+            <ul className="space-y-4">
+              <ListItem text="Discover trusted local businesses nearby" />
+              <ListItem text="Collect digital loyalty cards and vouchers" />
+              <ListItem text="Stay up to date with events and offers" />
+              <ListItem text="Businesses communicate directly with customers" />
+            </ul>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+
+      {/* TWO SIDES */}
+      <div className="grid md:grid-cols-2 gap-10">
+        {/* Consumers */}
+        <div className="border border-neutral-800 rounded-2xl p-8 bg-neutral-900 hover:border-orange-500/40 transition">
+          <span className="text-sm text-orange-500 font-medium">
+            For Consumers
+          </span>
+
+          <h2 className="text-2xl font-semibold mt-3 mb-4">
+            Discover and support local businesses
+          </h2>
+
+          <p className="text-neutral-300 mb-6">
+            Explore local businesses in your area, collect digital loyalty
+            cards, receive vouchers, and stay informed about events, offers
+            and business updates — all in one place.
+          </p>
+
+          <ul className="space-y-3 text-sm text-neutral-300">
+            <ListItem text="Find nearby local businesses" />
+            <ListItem text="Collect digital loyalty cards" />
+            <ListItem text="Receive vouchers and special offers" />
+            <ListItem text="Follow businesses and get updates" />
+          </ul>
+        </div>
+
+        {/* Businesses */}
+        <div className="border border-neutral-800 rounded-2xl p-8 bg-neutral-900 hover:border-orange-500/40 transition">
+          <span className="text-sm text-orange-500 font-medium">
+            For Businesses
+          </span>
+
+          <h2 className="text-2xl font-semibold mt-3 mb-4">
+            Attract, retain and engage customers
+          </h2>
+
+          <p className="text-neutral-300 mb-6">
+            Create a business profile, reward loyal customers, promote events
+            and communicate directly with your audience using simple digital
+            tools designed for local businesses.
+          </p>
+
+          <ul className="space-y-3 text-sm text-neutral-300">
+            <ListItem text="Create digital loyalty cards" />
+            <ListItem text="Send vouchers and promotions" />
+            <ListItem text="Promote events and special offers" />
+            <ListItem text="Post updates directly to customers" />
+          </ul>
+        </div>
+      </div>
+
+      {/* POSITIONING / TRUST */}
+      <div className="border border-neutral-800 rounded-2xl p-10 bg-neutral-900/50">
+        <h2 className="text-2xl font-semibold mb-4">
+          Designed for local communities
+        </h2>
+        <p className="text-neutral-300 max-w-3xl">
+          YourLocal is built to help local businesses grow while giving
+          consumers an easy way to discover, support and stay connected with
+          the places they care about — without relying on fragmented tools or
+          social media algorithms.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function ListItem({ text }: { text: string }) {
+  return (
+    <li className="flex gap-3">
+      <span className="text-orange-500">●</span>
+      <span>{text}</span>
+    </li>
   );
 }
